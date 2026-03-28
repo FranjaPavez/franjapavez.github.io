@@ -2,300 +2,263 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Florería Lirios de Oro</title>
+<title>Tienda Pro Full</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: #6e0b0b;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* FLORES FLOTANTES */
-.flores img {
-  position: fixed;
-  width: 40px;
-  animation: caer 12s linear infinite;
-  opacity: 0.6;
-  z-index: 0;
-}
-
-.flores img:nth-child(1){ left:10%; animation-delay:0s;}
-.flores img:nth-child(2){ left:50%; animation-delay:4s;}
-.flores img:nth-child(3){ left:80%; animation-delay:8s;}
-
-@keyframes caer {
-  0% { top:-10%; }
-  100% { top:110%; }
-}
-
-/* NAV */
-nav {
-  background:#4a0000;
-  padding:15px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-nav a {
-  color:gold;
-  margin:10px;
-  text-decoration:none;
-  position:relative;
-}
-
-nav a::after {
-  content:'';
-  height:2px;
-  background:gold;
-  width:0;
-  display:block;
-  transition:0.3s;
-}
-
-nav a:hover::after {
-  width:100%;
-}
-
-/* LOGO */
-.logo {
-  text-align:center;
-  padding:20px;
-}
-
-.logo img {
-  width:240px;
-  border-radius:50%;
-  box-shadow:0 0 25px rgba(255,215,0,0.6);
-  transition:0.3s;
-}
-
-.logo img:hover {
-  transform:scale(1.05);
-}
-
-/* BANNER */
-.banner {
-  background:gold;
-  color:black;
-  text-align:center;
-  padding:10px;
-  font-weight:bold;
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(135deg,#2a0000,#7a0000);
+  color:white;
 }
 
 /* HEADER */
-header {
+header{
   text-align:center;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
+  padding:25px;
+  background:#3a0000;
 }
 
-h1 { color:gold; }
-
-/* BOTONES */
-.btn {
-  background:gold;
-  color:black;
-  padding:12px 20px;
-  border-radius:30px;
-  text-decoration:none;
-  margin:10px;
-  display:inline-block;
-  transition:0.3s;
-}
-
-.btn:hover {
-  transform:scale(1.1);
+h1{
+  color:gold;
+  margin:0;
 }
 
 /* GRID */
-.grid {
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:40px;
-}
-
-.card {
-  background:#8b0000;
-  border-radius:15px;
-  overflow:hidden;
-  transition:0.3s;
-  position:relative;
-  z-index:1;
-}
-
-.card:hover {
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-}
-
-.card img {
-  width:100%;
-  height:250px;
-  object-fit:cover;
-}
-
-.card h3, .card p {
-  margin:10px;
-}
-
-.buy {
-  display:block;
-  background:gold;
-  color:black;
-  padding:10px;
-  text-align:center;
-  text-decoration:none;
-}
-
-/* GALERÍA */
-.insta {
-  display:flex;
-  overflow-x:auto;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
   padding:20px;
 }
 
-.insta img {
-  width:200px;
-  height:200px;
-  border-radius:15px;
+.card{
+  background:rgba(0,0,0,0.3);
+  border-radius:12px;
+  overflow:hidden;
+  padding:10px;
+}
+
+img{
+  width:100%;
+  height:160px;
   object-fit:cover;
-  transition:0.3s;
+  border-radius:10px;
 }
 
-.insta img:hover {
-  transform:scale(1.1);
+h3{
+  color:gold;
 }
 
-/* WHATSAPP FLOTANTE */
-.float {
-  position:fixed;
-  bottom:20px;
-  right:20px;
+.price{
+  font-weight:bold;
+  color:#ffd700;
+}
+
+/* BOTONES */
+button{
   background:gold;
-  color:black;
+  border:0;
+  padding:10px;
+  width:100%;
+  margin-top:5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ADMIN BUTTON */
+#adminBtn{
+  position:fixed;
+  bottom:15px;
+  left:15px;
+  background:gold;
+  border:none;
   padding:15px;
   border-radius:50%;
-  font-size:20px;
-  text-decoration:none;
-  z-index:10;
+  cursor:pointer;
+  font-size:18px;
 }
 
-.float:hover {
-  transform:scale(1.2);
-}
-
-/* FOOTER */
-footer {
-  background:#3a0000;
+/* PANEL ADMIN */
+#adminPanel{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#111;
   padding:20px;
-  text-align:center;
+  overflow:auto;
 }
 
-/* ANIMACIÓN */
-@keyframes fadeIn {
-  from {opacity:0;}
-  to {opacity:1;}
+input{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border:none;
+  border-radius:5px;
+}
+
+.adminCard{
+  background:#222;
+  padding:10px;
+  margin:10px 0;
+  border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- FLORES -->
-<div class="flores">
-<img src="https://png.pngtree.com/png-clipart/20230407/original/pngtree-rose-petal-png-image_9039457.png">
-<img src="https://png.pngtree.com/png-clipart/20230407/original/pngtree-rose-petal-png-image_9039457.png">
-<img src="https://png.pngtree.com/png-clipart/20230407/original/pngtree-rose-petal-png-image_9039457.png">
-</div>
-
-<nav>
-<a href="#condolencias">Condolencias</a>
-<a href="#peluches">Peluches</a>
-<a href="#contacto">Contacto</a>
-</nav>
-
-<div class="logo">
-<img src="logo.png">
-</div>
-
-<div class="banner">
-🌹 Envíos el mismo día | Atención personalizada 🌹
-</div>
-
 <header>
-<h1>Florería Lirios de Oro</h1>
-<p>Elegancia en cada detalle 💐</p>
-
-<a class="btn" href="https://wa.me/56920521986">WhatsApp</a>
-<a class="btn" href="https://www.instagram.com/floreria.lirios.de.oro">Instagram</a>
+<h1>🌹 Tienda Pro Full</h1>
+<p>Compra directo por WhatsApp o pago 💳</p>
 </header>
 
-<section id="condolencias">
-<h2>Condolencias</h2>
-<div class="grid">
+<div class="grid" id="grid"></div>
 
-<div class="card">
-<img src="foto1.jpg">
-<h3>Arreglo Elegante</h3>
-<p>$30.000</p>
-<a class="buy" href="https://wa.me/56920521986?text=Hola%20quiero%20este%20arreglo">Comprar</a>
+<!-- BOTÓN ADMIN -->
+<button id="adminBtn" onclick="openAdmin()">⚙️</button>
+
+<!-- PANEL ADMIN -->
+<div id="adminPanel">
+
+<h2>🔐 Admin Login</h2>
+
+<input id="user" placeholder="Usuario">
+<input id="pass" type="password" placeholder="Contraseña">
+
+<button onclick="login()">Entrar</button>
+
+<hr>
+
+<h2>➕ Agregar producto</h2>
+
+<input id="name" placeholder="Nombre producto">
+<input id="price" placeholder="Precio">
+<input id="img" placeholder="URL imagen">
+<input id="desc" placeholder="Descripción">
+
+<button onclick="addProduct()">Agregar</button>
+
+<hr>
+
+<div id="list"></div>
+
+<button onclick="closeAdmin()">Cerrar</button>
+
 </div>
 
-<div class="card">
-<img src="foto2.jpg">
-<h3>Corona Floral</h3>
-<p>$45.000</p>
-<a class="buy" href="https://wa.me/56920521986?text=Hola%20quiero%20la%20corona">Comprar</a>
-</div>
+<script>
 
-</div>
-</section>
+let products = JSON.parse(localStorage.getItem("products")) || [];
 
-<section id="peluches">
-<h2>Peluches</h2>
-<div class="grid">
+let isAdmin = false;
 
-<div class="card">
-<img src="foto3.jpg">
-<h3>Peluche + Flores</h3>
-<p>$20.000</p>
-<a class="buy" href="https://wa.me/56920521986?text=Hola%20quiero%20el%20peluche">Comprar</a>
-</div>
+/* TIENDA */
+function render(){
+  let grid = document.getElementById("grid");
+  grid.innerHTML = "";
 
-</div>
-</section>
+  products.forEach((p,i)=>{
+    grid.innerHTML += `
+      <div class="card">
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price">$${p.price}</div>
 
-<section>
-<h2>Galería</h2>
-<div class="insta">
-<img src="foto1.jpg">
-<img src="foto2.jpg">
-<img src="foto3.jpg">
-<img src="foto1.jpg">
-<img src="foto2.jpg">
-</div>
-</section>
+        <a href="https://wa.me/56920521986?text=Quiero%20${p.name}">
+          <button>WhatsApp 💬</button>
+        </a>
 
-<section id="contacto">
-<h2>Ubicación</h2>
-<p>Carelmapu 2523, Pedro Aguirre Cerda</p>
+        <button onclick="pay(${p.price})">Pagar 💳</button>
+      </div>
+    `;
+  });
 
-<iframe src="https://www.google.com/maps?q=Carelmapu+2523+Pedro+Aguirre+Cerda+Chile&output=embed"
-width="90%" height="300"></iframe>
-</section>
+  localStorage.setItem("products", JSON.stringify(products));
+}
 
-<footer>
-<p>Florería Lirios de Oro © 2026</p>
-</footer>
+/* 💳 PAY (placeholder WebPay) */
+function pay(amount){
+  alert("💳 Aquí luego conectamos WebPay real\nMonto: $" + amount);
+}
 
-<a href="https://wa.me/56920521986" class="float">💬</a>
+/* 🔐 ADMIN */
+function openAdmin(){
+  document.getElementById("adminPanel").style.display="block";
+  renderAdmin();
+}
+
+function closeAdmin(){
+  document.getElementById("adminPanel").style.display="none";
+}
+
+/* LOGIN SIMPLE */
+function login(){
+  if(user.value === "admin" && pass.value === "1234"){
+    isAdmin = true;
+    alert("🔥 Bienvenido Admin");
+    renderAdmin();
+  } else {
+    alert("❌ Login incorrecto");
+  }
+}
+
+/* ➕ AGREGAR */
+function addProduct(){
+
+  if(!isAdmin){
+    alert("No eres admin 😈");
+    return;
+  }
+
+  products.push({
+    name:name.value,
+    price:price.value,
+    img:img.value,
+    desc:desc.value
+  });
+
+  name.value="";
+  price.value="";
+  img.value="";
+  desc.value="";
+
+  render();
+  renderAdmin();
+}
+
+/* 🗑️ BORRAR */
+function del(i){
+  if(!isAdmin) return;
+
+  products.splice(i,1);
+  render();
+  renderAdmin();
+}
+
+/* PANEL LISTA */
+function renderAdmin(){
+  let list=document.getElementById("list");
+  list.innerHTML="";
+
+  products.forEach((p,i)=>{
+    list.innerHTML+=`
+      <div class="adminCard">
+        <b>${p.name}</b><br>
+        $${p.price}<br><br>
+        <button onclick="del(${i})">Eliminar</button>
+      </div>
+    `;
+  });
+}
+
+render();
+
+</script>
 
 </body>
 </html>
