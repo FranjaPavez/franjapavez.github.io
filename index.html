@@ -10,208 +10,231 @@ body {
   font-family: 'Georgia', serif;
   background: #6e0b0b;
   color: white;
+  overflow-x: hidden;
+}
+
+/* FLORES FLOTANTES */
+.flores img {
+  position: fixed;
+  width: 40px;
+  animation: caer 12s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.flores img:nth-child(1){ left:10%; animation-delay:0s;}
+.flores img:nth-child(2){ left:50%; animation-delay:4s;}
+.flores img:nth-child(3){ left:80%; animation-delay:8s;}
+
+@keyframes caer {
+  0% { top:-10%; }
+  100% { top:110%; }
 }
 
 /* NAV */
 nav {
-  background: #4a0000;
-  padding: 15px;
-  text-align: center;
-  position: sticky;
-  top: 0;
+  background:#4a0000;
+  padding:15px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
 nav a {
-  color: gold;
-  margin: 10px;
-  text-decoration: none;
-  position: relative;
+  color:gold;
+  margin:10px;
+  text-decoration:none;
+  position:relative;
 }
 
 nav a::after {
-  content: '';
-  height: 2px;
-  background: gold;
-  width: 0;
-  display: block;
-  transition: 0.3s;
+  content:'';
+  height:2px;
+  background:gold;
+  width:0;
+  display:block;
+  transition:0.3s;
 }
 
 nav a:hover::after {
-  width: 100%;
+  width:100%;
 }
 
 /* LOGO */
 .logo {
-  text-align: center;
-  padding: 25px;
+  text-align:center;
+  padding:20px;
 }
 
 .logo img {
-  width: 240px;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(255,215,0,0.5);
-  transition: 0.3s;
+  width:240px;
+  border-radius:50%;
+  box-shadow:0 0 25px rgba(255,215,0,0.6);
+  transition:0.3s;
 }
 
 .logo img:hover {
-  transform: scale(1.05);
+  transform:scale(1.05);
+}
+
+/* BANNER */
+.banner {
+  background:gold;
+  color:black;
+  text-align:center;
+  padding:10px;
+  font-weight:bold;
 }
 
 /* HEADER */
 header {
-  text-align: center;
-  padding: 20px;
-  animation: fadeIn 1.5s ease;
+  text-align:center;
+  padding:20px;
+  animation:fadeIn 1.5s ease;
 }
 
-h1 {
-  color: gold;
-}
+h1 { color:gold; }
 
 /* BOTONES */
 .btn {
-  background: gold;
-  color: black;
-  padding: 12px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  margin: 10px;
-  display: inline-block;
-  transition: 0.3s;
+  background:gold;
+  color:black;
+  padding:12px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  margin:10px;
+  display:inline-block;
+  transition:0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.1);
+  transform:scale(1.1);
 }
 
 /* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:40px;
 }
 
 .card {
-  background: #8b0000;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: 0.3s;
+  background:#8b0000;
+  border-radius:15px;
+  overflow:hidden;
+  transition:0.3s;
+  position:relative;
+  z-index:1;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+  width:100%;
+  height:250px;
+  object-fit:cover;
 }
 
 .card h3, .card p {
-  margin: 10px;
+  margin:10px;
 }
 
 .buy {
-  display: block;
-  background: gold;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.buy:hover {
-  background: white;
+  display:block;
+  background:gold;
+  color:black;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
 }
 
 /* GALERÍA */
 .insta {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  padding: 20px;
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  padding:20px;
 }
 
 .insta img {
-  width: 200px;
-  height: 200px;
-  border-radius: 15px;
-  object-fit: cover;
-  transition: 0.3s;
+  width:200px;
+  height:200px;
+  border-radius:15px;
+  object-fit:cover;
+  transition:0.3s;
 }
 
 .insta img:hover {
-  transform: scale(1.1);
+  transform:scale(1.1);
 }
 
-.insta::-webkit-scrollbar {
-  height: 8px;
-}
-
-.insta::-webkit-scrollbar-thumb {
-  background: gold;
-  border-radius: 10px;
-}
-
-/* BOTÓN FLOTANTE */
+/* WHATSAPP FLOTANTE */
 .float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: gold;
-  color: black;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  transition: 0.3s;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:gold;
+  color:black;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+  z-index:10;
 }
 
 .float:hover {
-  transform: scale(1.2);
+  transform:scale(1.2);
 }
 
 /* FOOTER */
 footer {
-  background: #3a0000;
-  padding: 20px;
-  text-align: center;
+  background:#3a0000;
+  padding:20px;
+  text-align:center;
 }
 
 /* ANIMACIÓN */
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {opacity:0;}
+  to {opacity:1;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- FLORES -->
+<div class="flores">
+<img src="https://png.pngtree.com/png-clipart/20230407/original/pngtree-rose-petal-png-image_9039457.png">
+<img src="https://png.pngtree.com/png-clipart/20230407/original/pngtree-rose-petal-png-image_9039457.png">
+<img src="https://png.pngtree.com/png-clipart/20230407/original/pngtree-rose-petal-png-image_9039457.png">
+</div>
+
 <nav>
-  <a href="#condolencias">Condolencias</a>
-  <a href="#peluches">Peluches</a>
-  <a href="#matrimonio">Matrimonio</a>
-  <a href="#aniversario">Aniversario</a>
-  <a href="#graduacion">Graduación</a>
-  <a href="#contacto">Contacto</a>
+<a href="#condolencias">Condolencias</a>
+<a href="#peluches">Peluches</a>
+<a href="#contacto">Contacto</a>
 </nav>
 
 <div class="logo">
-  <img src="logo.png">
+<img src="logo.png">
+</div>
+
+<div class="banner">
+🌹 Envíos el mismo día | Atención personalizada 🌹
 </div>
 
 <header>
-  <h1>Florería Lirios de Oro</h1>
-  <p>Elegancia en cada detalle 💐</p>
+<h1>Florería Lirios de Oro</h1>
+<p>Elegancia en cada detalle 💐</p>
 
-  <a class="btn" href="https://wa.me/56920521986?text=Hola%20quiero%20información">WhatsApp</a>
-  <a class="btn" href="https://www.instagram.com/floreria.lirios.de.oro">Instagram</a>
+<a class="btn" href="https://wa.me/56920521986">WhatsApp</a>
+<a class="btn" href="https://www.instagram.com/floreria.lirios.de.oro">Instagram</a>
 </header>
 
 <section id="condolencias">
@@ -249,7 +272,6 @@ footer {
 </div>
 </section>
 
-<!-- GALERÍA -->
 <section>
 <h2>Galería</h2>
 <div class="insta">
@@ -265,10 +287,8 @@ footer {
 <h2>Ubicación</h2>
 <p>Carelmapu 2523, Pedro Aguirre Cerda</p>
 
-<iframe 
-src="https://www.google.com/maps?q=Carelmapu+2523+Pedro+Aguirre+Cerda+Chile&output=embed"
+<iframe src="https://www.google.com/maps?q=Carelmapu+2523+Pedro+Aguirre+Cerda+Chile&output=embed"
 width="90%" height="300"></iframe>
-
 </section>
 
 <footer>
